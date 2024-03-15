@@ -1,0 +1,37 @@
+function main() {
+    // Dit programma laat je een getal raden. Het neemt zelf een getal, jij gokt en het programma vertelt je of jouw getal het goede is, of dat het te hoog of te laag is. Je gokt tot je het goede getal geraden hebt. Dan krijg je ook het aantal pogingen te zien, die jij nodig had.
+    var aantalkeergeraden;
+
+    aantalkeergeraden = 1;
+    var i;
+
+    // Hier is een random getal aangemaakt
+    i = Math.floor(Math.random() * 30);
+    window.alert("Geef een getal tussen 0 en 30: ");
+
+    // Hier voer je jou gegokte getal in
+    var raadgetal;
+
+    raadgetal = -1;
+
+    // Met het getal -1 wordt bedoeld een getal dat nooit klopt
+    // In deze WHILE-lus gebeurt het: Zolang het getal niet geraden is, moet de gebruiker verder raden. De gebruiker krijgt te zien of zijn gok te hoog of te laag is
+    while (raadgetal != i) {
+        window.alert("Raad het getal");
+        raadgetal = Number(window.prompt('Enter a value for raadgetal'));
+        if (raadgetal < i) {
+
+            // Hier wordt aangegeven dat het getal hoger is dan je eigen gegokte getal
+            window.alert("Het getal is hoger");
+        } else {
+
+            // Hier wordt aangegeven dat het getal lager is dan je eigen gegokte getal
+            window.alert("Het getal is lager");
+        }
+        aantalkeergeraden = aantalkeergeraden + 1;
+    }
+
+    // Hier heeft de gebruiker het geraden. De WHILE-lus is verlaten. De gebruiker krijgt een felicitatie en krijgt te zien in hoeveel keer hij het getal geraden heeft.
+    window.alert("Het getal was: " + i + " jij gokte: " + raadgetal);
+    window.alert("Je hebt het geraden in " + aantalkeergeraden + " keer!");
+}
