@@ -24,64 +24,65 @@
             <li><a href="bubblesort.html">Bubblesort</a> </li>
           
         </ul>
-        <script>
-            //function main() {
-    var aantal;
+     <script>
+    function main() {
+        var aantal;
 
-    // Hier vraagt Flowgorithm welk aantal getallen je wilt gebruiken
-    window.alert("Geef het aantal getallen op");
-    aantal = Number(window.prompt('Enter a value for aantal'));
+        // Hier vraagt Flowgorithm welk aantal getallen je wilt gebruiken
+        window.alert("Geef het aantal getallen op");
+        aantal = Number(window.prompt('Enter a value for aantal'));
 
-    // Hier voer je het gewenste getal in
-    var nummers = new Array(aantal);
-    var teller;
+        // Hier voer je het gewenste getal in
+        var nummers = new Array(aantal);
+        var teller;
 
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
+        for (teller = 0; teller <= nummers.length - 1; teller++) {
 
-        // Hier worden random nummers verzamelt
-        nummers[teller] = Math.floor(Math.random() * 100);
+            // Hier worden random nummers verzamelt
+            nummers[teller] = Math.floor(Math.random() * 100);
+        }
+        weergaveArray(nummers);
+        sorteer(nummers);
+
+        // Hier zijn alle nummers gesorteerd
     }
-    weergaveArray(nummers);
-    sorteer(nummers);
 
-    // Hier zijn alle nummers gesorteerd
-}
+    function sorteer(nummers) {
+        // Als eerst worden er verschillende variabelen aangemaakt
+        var y;
+        var x;
+        var temp;
 
-function sorteer(nummers) {
-    // Als eerst worden er verschillende variabelen aangemaakt
-    var y;
-    var x;
-    var temp;
+        // De getallen komen op volgorde door elk getaal af te gaan
+        for (y = 0; y <= nummers.length - 1; y++) {
+            for (x = 0; x <= nummers.length - y - 2; x++) {
+                if (nummers[y] > nummers[y + 1]) {
+                    temp = nummers[x];
+                    nummers[x] = nummers[x + 1];
+                    nummers[x + 1] = temp;
 
-    // De getallen komen op volgorde door elk getaal af te gaan
-    for (y = 0; y <= nummers.length - 1; y++) {
-        for (x = 0; x <= nummers.length - y - 2; x++) {
-            if (nummers[y] > nummers[y + 1]) {
-                temp = nummers[x];
-                nummers[x] = nummers[x + 1];
-                nummers[x + 1] = temp;
-
-                // Hier krijg je het eindresultaat
+                    // Hier krijg je het eindresultaat
+                }
             }
         }
+        window.alert("De goede volgorde van de getallen zijn");
+        weergaveArray(nummers);
     }
-    window.alert("De goede volgorde van de getallen zijn");
-    weergaveArray(nummers);
-}
 
-function weergaveArray(nummers) {
-    var teller;
+    function weergaveArray(nummers) {
+        var teller;
 
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
+        for (teller = 0; teller <= nummers.length - 1; teller++) {
 
-        // Hier worden de nummers opgeteld
-        window.alert(nummers[teller]);
+            // Hier worden de nummers opgeteld
+            window.alert(nummers[teller]);
 
-        // Hier is het resultaat van de bubble sort
+            // Hier is het resultaat van de bubble sort
+        }
     }
-//}
 
-
-        </script>     
+    // Roep de main functie aan wanneer de pagina wordt geladen
+    main();
+</script>   
     </body>
 </html>
