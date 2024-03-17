@@ -26,61 +26,41 @@
           
         </ul>
         <script>
-           function main() {
-    var aantal;
+          function main() {
+    var zoekGetal, i;
 
-    // Hier vraagt Flowgorithm welk aantal getallen je wilt gebruiken
-    window.alert("Geef het aantal getallen op");
-    aantal = Number(window.prompt('Enter a value for aantal'));
+    // Hier worden de variabelen aangemaakt.
+    var getallenRij = new Array(10);
 
-    // Hier voer je het gewenste getal in
-    var nummers = new Array(aantal);
-    var teller;
-
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
-
-        // Hier worden random nummers verzamelt
-        nummers[teller] = Math.floor(Math.random() * 100);
+    // In deze for loop heb je een startwaarde van 0 en een eind waarde van 9
+    for (i = 0; i <= 9; i++) {
+        getallenRij[i] = Math.floor(Math.random() * 100);
     }
-    weergaveArray(nummers);
-    sorteer(nummers);
+    window.alert("Welk getal wil je zoeken: ");
+    zoekGetal = Number(window.prompt('Enter a value for zoekGetal'));
+    i = 0;
 
-    // Hier zijn alle nummers gesorteerd
-}
+    // Na het breakpoint, wordt hier gevraagt welk getal er moet komen.
+    while (zoekGetal != getallenRij[i] && i < 9) {
+        i = i + 1;
+    }
 
-function sorteer(nummers) {
-    // Als eerst worden er verschillende variabelen aangemaakt
-    var y;
-    var x;
-    var temp;
+    // In de while loop wordt gekeken welk gezochte getal, op de getallenlijn staat. Als dat niet zo is gaat het programma door.
+    if (i < 9) {
 
-    // De getallen komen op volgorde door elk getaal af te gaan
-    for (y = 0; y <= nummers.length - 1; y++) {
-        for (x = 0; x <= nummers.length - y - 2; x++) {
-            if (nummers[y] > nummers[y + 1]) {
-                temp = nummers[x];
-                nummers[x] = nummers[x + 1];
-                nummers[x + 1] = temp;
-
-                // Hier krijg je het eindresultaat
-            }
+        // Als het gezochte getal op >9 staat, gaat het IF statement deze kant op.
+        if (i > 9) {
+            window.alert("Getal niet gevonden");
+        } else {
+            window.alert(zoekGetal.toString() + " staat op plek " + i);
         }
-    }
-    window.alert("De goede volgorde van de getallen zijn");
-    weergaveArray(nummers);
-}
+    } else {
 
-function weergaveArray(nummers) {
-    var teller;
-
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
-
-        // Hier worden de nummers opgeteld
-        window.alert(nummers[teller]);
-
-        // Hier is het resultaat van de bubble sort
+        // Als het gezochte getal op <9 staat, gaat het IF statement deze kant op.
+        window.alert(zoekGetal.toString() + " staat op plek " + i);
     }
 }
+
 
         </script>     
     </body>
